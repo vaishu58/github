@@ -1,0 +1,29 @@
+what is Firewall
+
+Security Groups  Statefull Firewall
+
+NACL Network Access Control LIST (NACL) - Stateless Firewall
+
+TCP - 1 to 65535 (TRANSMISSION CONTROL PROTOCOL)
+https - TCP/443
+http  - TCP/80
+JENKINS - http - TCP/8080 TOMCAT TCP/8080 
+SSH - TCP/22
+RDP - TCP/3389
+SONARQUBE - 9000
+PROMETHUS - 9090
+
+UDP - 1 to 65535 9 (User Datagram Protocol)
+
+FIRE WALL TWO TYPES
+Statefull Firewall
+Stateless Firewall
+
+cat /etc/os-release
+nginx server install
+sudo yum update
+sudo yum install nginx
+service nginx start
+systemctl enable nginx
+echo "<div><h1>webserver-1</h1></div>" >> /usr/share/nginx/html/index.html
+

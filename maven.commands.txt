@@ -1,0 +1,54 @@
+sudo yum update -y
+    2  clear
+    3  yum install git -y
+    4  clear
+    5  git init .
+    6  git config user.name nagesh
+    7  git config user.email nageshyedidi@com
+    8  git config --list
+    9  yum install java-17-openjdk-devel -y
+   10  clear
+   11  java
+   12  javac
+   13  java -version
+   14  which java
+   15  whereis java
+   16  ls -l /usr/bin/java
+   17  ls -l /etc/alternatives/java
+   18  yum list installed | grep java
+   19  cd /opt
+   20  yum install wget -y
+   21  wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+   22  ll
+   23  tar -xvzf apache-maven-3.9.4-bin.tar.gz
+   24  ll
+   25  rm -rf apache-maven-3.9.4-bin.tar.gz
+   26  ll
+   27  cd /etc
+   28  cd profile.d
+   29  vi maven.sh
+   30  source /etc/profile.d/maven.sh
+   31  mvn --version
+   32  mkdir maven
+   33  cd maven/
+   34  mvn archetype:generate
+   35  ll
+   36  cd agt/
+   37  yum install tree -y
+   38  tree
+   39  cat src/main/java/devops/App.java
+   40  cat src/test/java/devops/AppTest.java
+   41  cat pom.xml
+   42  mvn compile
+   43  tree
+   44  mvn test
+   45  mvn package
+   46  mvn install
+   47  tree
+   48  cd /root/.m2/repository/devops/agt/1.0-SNAPSHOT/
+   49  ll
+   50  cd -
+   51  ll
+   52  mvn clean
+   53  ll
+   54  history

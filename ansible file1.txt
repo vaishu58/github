@@ -1,0 +1,47 @@
+connect ubuntu instances
+sudo apt update
+sudo apt install ansible
+ansible --version
+ssh privateip second server
+ssh-keygen
+ls /home/ubuntu/.ssh/
+cat /home/ubuntu/.ssh/id_rsa.pub
+and again ssh-keygen in target server
+ls ~/.ssh/
+vim ~/.ssh/authorized_keys
+remove existing keys and copy the key from ansible and paste
+ansible
+create file from ansible server touch inventory and copy the target ip address and paste
+ansible -i inventory all -m "shell" -a "touch ansible class" this above steps in ansible server
+and go to target server and type command ls-ltr
+ansible -i inventory all -m "shell" -a "nproc"
+ansible -i inventory all -m "shell" -a "df"
+ansible -i inventory web servers -m "shell" -a "df"
+vim first-plybook.yml
+---
+- name: Install Nginx
+  hosts: all
+  become: true
+
+  tasks:
+     - name: Install Nginx
+       apt:
+           name: nginx
+           state: present
+     - name: Start Nginx
+       service:
+           name: nginx
+           state: started
+save and quit
+ansible-playbook -i inventory first-playbook.yml
+sudo systemctl status nginx
+ansible-playbook -vvv -i inventory first-playbook.yml
+vim kubernetes.yml
+Create 3 Ec2 instances on AWS (terraform)
+Configure 1 of those Ec2 instances as master (ansible)
+configure 2 other ec2 instances as slaves (ansible)
+create folder mkdir second-playbook
+cd second-playbook/
+ansible-galaxy role init kubernetes
+ls
+ls kubernetes/

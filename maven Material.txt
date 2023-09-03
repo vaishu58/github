@@ -1,0 +1,119 @@
+			
+Maven Index:
+============
+
+
+
+Build Tools/Build Automation/Management/Process
+================================================
+
+--> Build Management: is a process that we compile and assemble all the source code(written by developers) into object files.
+		ex: 100 app.java files
+		    100 object files(.class files)
+Alternatives
+------------
+>>Grunt
+>>Gulp
+>>Ant--> Apache Foundation product
+>>Gradle--> Alternative for Maven
+>>Maven--> latest and updated one
+
+--> diff with other tools
+	>> open source
+	>> it is not only build tool and also project management tool
+	>> it follows set of standards/rules/protocals	
+	>> default project lifecycle 
+	>> dependency management
+
+>> Compiling Source Code               
+>> Packaging Biniries/artifacts
+>> running Automated tests                         
+>> Deploying to production system
+>> Creating Documentation
+
+maven installation in ec2
+=========================
+1. yum update -y
+   sudo -i
+2. Login to instance as a root user and install Java(openJdk)
+    - /usr/sbin/alternatives --config java
+     Note:- it'll show you how many java versions are installed in your machine and you can select which one want to use.
+    - sudo su - root (or) sudo su - (or) sudo -i
+    - yum install java-17-openjdk-devel -y
+    - java and javac (Java Compiler)
+    - java -version
+    - which java
+    - whereis java
+    - ls -l /usr/bin/java
+    - ls -l /etc/alternatives/java
+    - java path --->> /usr/lib/jvm/jre-17-openjdk-17.0.5.0.8-2.el9_0.x86_64/bin/java
+    - yum list installed | grep java
+3. Install Maven in /opt  directory
+    cd /opt
+4. Download apache maven 
+   wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+     note:- yum install wget -y (by default wget package will not install in redhat Linux)
+mkdir maven
+cd maven/
+mvn archetype:generate
+5. tar -xvzf apache-maven-3.9.4-bin.tar.gz
+cd /etc
+cd profile.d
+sudo vi maven.sh
+6. for permanent configuration
+     export MAVEN_HOME=/opt/apache-maven-3.9.4
+     export PATH=$PATH:$MAVEN_HOME/bin
+6. source /etc/profile.d/maven.sh
+mvn --version
+
+           o/p:- Apache Maven 3.8.7 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-17T19:33:14+01:00)
+           	Maven home: /usr/local/src/apache-maven
+           	Java version: 9.0.4, vendor: Oracle Corporation, runtime: /opt/java/jdk-9.0.4
+           	Default locale: en_US, platform encoding: UTF-8
+         	OS name: "linux", version: "4.17.6-1.el7.elrepo.x86_64", arch: "amd64", family: "unix"
+cd agt/
+install tree package
+cat src/main/java/devops/App.java
+cat src/test/java/devops/AppTest.java
+cat pom.xml
+mvn compile
+tree
+mvn test
+tree
+mvn package
+tree
+mvn install
+cd /root/.m2/repository/devops/agt/1.0-SNAPSHOT/
+ll
+cd -
+mvn clean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+

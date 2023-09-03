@@ -1,0 +1,13 @@
+install apache server
+sudo yum update -y
+sudo yum install httpd -y
+cd /var/www/html/
+vim index.html
+sudo service httpd start
+cd /var/log/
+click ls for check hosting webserver
+cd httpd/ and click ls to check access logs
+cat access_log
+tail -f access_log
+check what is my ip
+

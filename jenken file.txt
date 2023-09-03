@@ -1,0 +1,23 @@
+JENKINS LAB
+cat /etc/redhat-release
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm 
+dnf repolist -v
+dnf repository-packages epel list
+jenkins.io
+ls /etc/yum.repos.d/
+yum install wget -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+#amazon-linux-extras install epel -y
+yum install fontconfig java-11-openjdk
+yum install git maven jenkins -y
+systemctl start jenkins.service
+systemctl status jenkins.service
+cat /var/lib/jenkins/secrets/initialAdminPassword
+BLUE : PROCESS
+GREEN : SUCESS
+RED:FAIL
+YELLOW:LOGIC
+BLACK:STOP
+cd var/lib/jenkins/secrets/initialAdminPassword
+vi /var/lib/jenkins/config.xml
