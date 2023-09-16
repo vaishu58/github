@@ -1,0 +1,31 @@
+sudo -i
+yum update -y
+yum install docker  -y
+docker version
+systemctl start docker.service
+systemctl status docker.service
+docker version
+docker search ubuntu
+docker pull ubuntu
+docker images
+docker run ubuntu
+docker container ls          this command is for started state
+docker container ls -al     this command is for stoped state
+docker run --name cont-1 ubuntu
+docker container ls -al
+docker rm "container id"
+docker run -it --name cont-2 ubuntu  (interactive terminal)
+cat /etc/os-release
+ll
+du -sh
+ctrl+d to exit
+cd /
+ll
+du -sh
+docker ps -a  (process status)
+docker start cont-2
+docker attach cont-2        this command is for enter in to docker container
+exit
+docker rename cont-2 nagesh
+docker inspect nagesh
+docker info

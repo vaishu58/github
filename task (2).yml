@@ -1,0 +1,131 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing git
+      action: yum name=git state=present
+
+    - name: installing tree
+      action: yum name=tree state=present
+
+
+
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing git
+      action: yum name='{{a}}' state=present
+
+    - name: installing tree
+      action: yum name='{{b}}' state=present
+
+
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing git
+      action: yum name=httpd state=present
+      notify: restart httpd
+
+  handlers:
+    - name: restart httpd
+      action: service name=httpd state=restarted
+
+
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing packages
+      action: yum name='{{item}}' state=present
+      with_items:
+              - tree
+              - httpd
+              - maven
+              - docker
+
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing packages
+      action: user name='{{item}}' state=present
+      with_items:
+              - abc
+              - yml
+              - ikl
+              - mkg
+
+
+  yaml2
+
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: installing httpd on Redhat
+      command: yum insatall httpd -y
+      when: ansible_os_family == "Redhat"
+
+    - name: installing httpd on ubuntu
+      command: apt insatall apache2 -y
+      when: ansible_os_family == "Debian"
+
+
+
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Installing Apache on centos
+      shell: name=httpd state=present
+      when: ansible_os_family == "Redhat"
+
+    - name: installing Apache on ubuntu server
+      apt: name=apache2 state=present
+      when: ansible_os_family == "Debian"
+
+
+
+
+
+
+      
+
+    - name: installing docker
+      command: yum install docker -y
+
+    - name: installing git
+      command: yum install git -y
+
+    - name: installing httpd
+      command: yum install httpd -y
+
+  ---
+    - hosts: dev
+      become: yes
+      roles:
+        - git
+
+
+  ---
+  - hosts: dev
+    become: yes
+    tasks:
+      - name: installing git
+        command: yum install git -y && git --version
+        tags: a
+
+      - name: installing git
+        command: yum install java-1.8.0-openjdk -y && java -version
+        tags: b
+
+      - name: installing maven
+        command: ym install maven -y && mvn --version
+        tags: c
+
+      - name: installing docker
+        command: yum install docker -y && docker --version
+        tags: d

@@ -1,0 +1,76 @@
+docker volumes
+sudo -i
+yum install -y
+systemctl start docker
+systemctl status docker
+docker pull ubuntu
+docker volume ls
+docker volume create nagesh
+docker volume ls
+docker volume inspect nagesh
+cd /copy path
+ll
+touch nagesh{1..5}
+vim nagesh1
+HAI ALL MY NAME IS NAGESH
+save and quit
+cd
+docker run -it --name cont2 --mount source=nagesh,destination=/abc ubuntu
+ll
+cd abc/
+ll
+cat nagesh1
+docker volume rm nagesh
+docker volume create agt1
+docker volume create agt2
+docker volume create agt3
+docker volume ls
+docker volume prune capital y
+docker volume ls
+docker volume inspect nagesh
+docker inspect cont2 | grep -i volume
+cd /home/ec2-user/
+touch file{1..5}
+ll
+vim file1
+THIS IS MY FILE-1 ON LOCAL
+/HOME/EC2-USER
+save and quit
+docker run -it --name cont3 -v /home/ec2-user:/hostnamevolume ubuntu
+ll
+touch file6
+exit
+ll
+
+
+
+docker hub
+
+docker start cont1
+docker attach cont1
+apt update -y
+apt install git vim tree apache2 maven default-jre default-jdk python3 -y
+exit
+docker commit cont1 nagesh1
+docker images
+nagswe
+docker login
+Nagswe@123
+docker tag nagesh1 nageshswe/zomato
+cd .docker/
+ll
+cat config.json
+create repository
+docker images
+docker push  nageshswe/zomato
+docker pull jenkins/jenkins:lts
+docker images
+docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
+54.219.44.231:8080
+
+
+
+
+
+
+
